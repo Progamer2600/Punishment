@@ -9,14 +9,15 @@ import org.bukkit.entity.Player;
 import net.minecraft.server.v1_12_R1.CommandExecute;
 
 public class Punish extends CommandExecute implements CommandExecutor {
-	String cmd1 = "Punish";
-	String cmd2 = "UnMute";
-	String cmd3 = "Unban";
-	Events e = new Events();
+	public String cmd1 = "Punish";
+	public String cmd2 = "UnMute";
+	public String cmd3 = "Unban";
+	public String[] args;
+	public Events e = new Events();
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-
+        this.args = args;
 		if (cmd.getName().equalsIgnoreCase(cmd1)) {
 			if (sender instanceof Player) {
 				if (args.length == 0) {
@@ -31,12 +32,12 @@ public class Punish extends CommandExecute implements CommandExecutor {
 
 				}
 				if (cmd.getName().equalsIgnoreCase(cmd2)) {
-					e.muted.remove(e.player);
+					e.muted.remove(e.player.toString());
 					sender.sendMessage(ChatColor.GOLD + "Player Un-Muted!");
 				}
 				if (cmd.getName().equalsIgnoreCase(cmd3)) {
-					e.banned.remove(e.player);
-					sender.sendMessage(ChatColor.GOLD + "Player has been Un-Banned!SS");
+					e.banned.remove(e.player.toString());
+					sender.sendMessage(ChatColor.GOLD + "Player has been Un-Banned!");
 				}
 
 			}
