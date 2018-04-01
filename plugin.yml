@@ -1,0 +1,7 @@
+name: Punishment
+author: Progamer260
+version: 1.0
+main: me.progamer260.punishment.Punishment
+commands:
+      Punish:
+             description: Opens the punishment GUI!
